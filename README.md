@@ -20,7 +20,7 @@ There are 2 ways to run ACValidator: 1) directly from source code, or 2) using p
 
 #### Running ACValidator directly from source code:
 
-In order to run ACValidator directly using the source code without any installation, copy the main script ACValidator.py and optionally the launcher ACV_launcher.sh (if you have multiple coordinates to validate) to the location of your input SAM file. 
+In order to run ACValidator directly using the source code without any installation, copy the main script ACValidator.py and optionally the launcher ACV\_launcher.sh (if you have multiple coordinates to validate) to the location of your input SAM file. 
 
 Then, to invoke the script for a single SAM file and single coordinate, call as:
 
@@ -31,7 +31,7 @@ python ACValidator.py -i InputSam -c CircRNA_coordinate --log-filename Log.txt
 To invoke for multiple coordinates, use:
 
 ```bash
-./ACValidator_launcher.sh InputSam CoordinateList.txt LogFileName.txt
+./ACV_launcher.sh InputSam CoordinateList.txt LogFileName.txt
 ```
 
 #### Running ACValidator after installation through pip install:
@@ -58,7 +58,7 @@ for coordinate in `cat CoordinateFile.txt`; do ACValidator -i InputSam -c ${coor
 
 ### Output
 
-ACValidator results are written to a folder named <InputSam>_validation_tests, which is further organized coordinate wise with the results for each coordinate of interest inside its respective folder. Inside each coordinate folder, ACValidator produces multiple output files, including the sorted sam, bam file of the extracted regions, pseudoreference fasta file, trinity fasta file containing the assembled contigs as well as text files named as “Check_overlap_out_*_coordinate.txt” for each of the 4 stringency criteria. These are 3 column text files containing the name and  sequence of the contig that overlaps with the pseudoreference, as well as the string “Found overlap”. So when these files are empty, or the folder for a coordinate is not created, it means that the respective circRNA coordinate was not validated by ACValidator. 
+ACValidator results are written to a folder named \<InputSam\>\_validation\_tests, which is further organized coordinate wise with the results for each coordinate of interest inside its respective folder. Inside each coordinate folder, ACValidator produces multiple output files, including the sorted sam, bam file of the extracted regions, pseudoreference fasta file, trinity fasta file containing the assembled contigs as well as text files named as “Check\_overlap\_out\_\*\_coordinate.txt” for each of the 4 stringency criteria. These are 3 column text files containing the name and  sequence of the contig that overlaps with the pseudoreference, as well as the string “Found overlap”. So when these files are empty, or the folder for a coordinate is not created, it means that the respective circRNA coordinate was not validated by ACValidator. 
 
 
 ### Notes
@@ -71,9 +71,9 @@ Make sure to change paths in the main script ACValidator.py for dependencies suc
 
 ### Test data
 
-Test data are available inside ACValidator/test_data.
+Test data are available inside ACValidator/test\_data.
 A test SAM file from one of our simulations is provided as: positive1.sam.
-A list of coordinates that can be tested on this input SAM file is provided as: test_coordinates.txt
+A list of coordinates that can be tested on this input SAM file is provided as: test\_coordinates.txt
 
 
 ### Contact
