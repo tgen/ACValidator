@@ -71,7 +71,8 @@ Make sure to change paths in the main script ACValidator.py for dependencies suc
 
 ### Test data
 
-http://tools.tgen.org/Files/ACValidator\_test\_data/
+http://tools.tgen.org/Files/ACValidator_test_data/
+
 Instructions to run are availble inside test\_data/README\_for\_testData.txt
 
 ### Contact
