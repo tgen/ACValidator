@@ -71,8 +71,8 @@ Make sure to change paths in the main script ACValidator.py for dependencies suc
 
 ### Test data
 
-Test data are available inside ACValidator/test_data
-A test SAM file from one of our simulations is provided as: positive1.sam
+Test data are available inside ACValidator/test_data.
+A test SAM file from one of our simulations is provided as: positive1.sam.
 A list of coordinates that can be tested on this input SAM file is provided as: test_coordinates.txt
 
 
