@@ -145,9 +145,8 @@ def extractRegions(circ_coord):
     start = int(coord_split[1].split("-")[0])
     end = int(coord_split[1].split("-")[1])
     
-    w = 300 # This can be changed based on read length and user preference
-    startwdw = start + w
-    endwdw = end - w
+    startwdw = start + int(w)
+    endwdw = end - int(w)
 
     log.info(str(start) + ":" + str(end))
     log.info(str(startwdw) + ":" + str(endwdw))
@@ -217,19 +216,19 @@ def checkOverlap(infile, fs='\t'):
         log.info("Sequence is: {}".format(sequence))
         log.info("Fasta string is: {}".format(fasta_string))
 
-        junction_seq_hs = fasta_string[270:330]
+        junction_seq_hs = fasta_string[(int(w)-30):(int(w)+30)]
         if sequence.find(junction_seq_hs) != -1:
             out_f2.write(fs.join((str(readname), sequence, "Found overlap", "\n")))
 
-        junction_seq_ms = fasta_string[280:320]
+        junction_seq_ms = fasta_string[(int(w)-20):(int(w)+20)]
         if sequence.find(junction_seq_ms) != -1:
             out_f3.write(fs.join((str(readname), sequence, "Found overlap", "\n")))
 
-        junction_seq_ls = fasta_string[290:310]
+        junction_seq_ls = fasta_string[(int(w)-10):(int(w)+10)]
         if sequence.find(junction_seq_ls) != -1:
             out_f4.write(fs.join((str(readname), sequence, "Found overlap", "\n")))
 
-        junction_seq_vls = fasta_string[295:305]
+        junction_seq_vls = fasta_string[(int(w)-5):(int(w)+5)]
         if sequence.find(junction_seq_vls) != -1:
             out_f5.write(fs.join((str(readname), sequence, "Found overlap", "\n")))
 
@@ -241,6 +240,8 @@ def arg_parser():
     parser.add_argument('-i', '--infile', required=True, help='Input Sam file')
 
     parser.add_argument('-c', '--coordinate', required=True, help='Input coordinate file')
+
+    parser.add_argument('-w', '--window', required=True, help='Window size')
 
     parser.add_argument('--log-filename', default=None, help='Filename to save logs')
 
@@ -269,13 +270,15 @@ def main(args=None):
     )
 
     global circ_coordinates
+    global w
 
     # We assume the SAM file is in the current directory, and create a custom
     # out directory for the input SAM file
     in_sample = args.infile
     circ_coordinates = args.coordinate
+    w = args.window
     in_sam = in_sample + ".sam"
-    dir_name = in_sample + "_validation_tests"
+    dir_name = in_sample + "_validation_tests_" + str(w)
 
     log.info("Infile is: {}".format(in_sam))
     log.info("Coordinates: {}".format(circ_coordinates))
@@ -291,6 +294,18 @@ def main(args=None):
     if not os.path.exists(in_sam):
         log.info("mv ../" + in_sam + " $PWD")
         check_call("mv ../" + in_sam + " $PWD", shell=True)
+
+    if not os.path.exists(bamf):
+        log.info("mv ../" + bamf + " $PWD")
+        check_call("mv ../" + bamf + " $PWD", shell=True)
+
+    if not os.path.exists(sorted_bamf):
+        log.info("mv ../" + sorted_bamf + " $PWD")
+        check_call("mv ../" + sorted_bamf + " $PWD", shell=True)
+
+    if not os.path.exists(bamf_index):
+        log.info("mv ../" + bamf_index + " $PWD")
+        check_call("mv ../" + bamf_index + " $PWD", shell=True)
 
     convertSamToBam(in_sam)
     extractRegions(circ_coordinates)
