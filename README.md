@@ -36,10 +36,12 @@ To invoke for multiple coordinates, use:
 
 #### Running ACValidator after installation through pip install:
 
-In order to install ACValidator, type 
+In order to install ACValidator, clone ACValidator from github and use pip install as below: 
 
 ```bash
-pip install --user ACValidator
+git clone https://github.com/tgen/ACValidator.git
+cd ACValidator
+pip install --user .
 ```
 
 Once this is installed, make sure the install location is added in your PATH and then invoke ACValidator from the location of your input SAM file.
