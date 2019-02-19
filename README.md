@@ -79,4 +79,5 @@ Instructions to run are availble inside test\_data/README\_for\_testData.txt
 
 ### Contact
 
-This code was developed and is maintained by Shobana Sekar, ssekar at tgen.org, Liang lab, Translational Genomics Research Institute
+This code was developed and is maintained by Shobana Sekar, Liang lab, Translational Genomics Research Institute.
+Please send your comments,questions and suggestions to ssekar@tgen.org
