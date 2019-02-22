@@ -77,6 +77,12 @@ http://tools.tgen.org/Files/ACValidator_test_data/
 
 Instructions to run are availble inside test\_data/README\_for\_testData.txt
 
+
+### Citation
+
+Pre-print of our ACValidator manuscript is currently up on biorxiv: https://www.biorxiv.org/content/10.1101/556597v1
+doi: https://doi.org/10.1101/556597
+
 ### Contact
 
 This code was developed and is maintained by Shobana Sekar, Liang lab, Translational Genomics Research Institute.
