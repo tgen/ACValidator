@@ -241,7 +241,7 @@ def arg_parser():
 
     parser.add_argument('-c', '--coordinate', required=True, help='Input coordinate file')
 
-    parser.add_argument('-w', '--window', required=True, help='Window size')
+    parser.add_argument('-w', '--window', required=True, help='Window size (default = 300)', default="300"))
 
     parser.add_argument('--log-filename', default=None, help='Filename to save logs')
 
